@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYOBObook</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle-input">
+
+    <aside class="mega-menu-sidebar">
+        <div class="menu-header">
+            <a href="main.html" class="menu-logo">
+                <img src="images/logo_book.svg" alt="KYOBO 교보문고">
+            </a>
+            <label for="menu-toggle" class="close-btn">×</label>
+        </div>
+        <ul class="main-menu">
+            <li class="menu-title">카테고리</li>
+            <li class="has-submenu">
+                <a href="#">국내도서</a>
+                <div class="submenu">
+                    <h4>국내도서</h4>
+                    <ul>
+                        <li><a href="#">소설</a></li>
+                        <li><a href="#">시/에세이</a></li>
+                        <li><a href="#">경제/경영</a></li>
+                        <li><a href="#">자기계발</a></li>
+                        <li><a href="#">인문</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="has-submenu"><a href="#">서양도서</a>
+                <div class="submenu">
+                    <h4>서양도서</h4>
+                    <ul>
+                        <li><a href="#">문학</a></li>
+                        <li><a href="#">취미/실용/여행</a></li>
+                        <li><a href="#">예술/건축</a></li>
+                        <li><a href="#">인문/사회</a></li>
+                        <li><a href="#">경제/경영</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="has-submenu"><a href="#">일본도서</a>
+                <div class="submenu">
+                    <h4>일본도서</h4>
+                    <ul>
+                        <li><a href="#">잡지</a></li>
+                        <li><a href="#">엔터테인먼트</a></li>
+                        <li><a href="#">만화/애니</a></li>
+                        <li><a href="#">문학</a></li>
+                        <li><a href="#">라이트노벨</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="has-submenu"><a href="#">교보Only</a>
+                <div class="submenu"><h4>교보Only</h4>
+                    <ul>
+                        <li><a href="#">강연</a></li>
+                        <li><a href="#">여행</a></li>
+                        <li><a href="#">교보문고 굿즈</a></li>
+                        <li><a href="#">책향</a></li>
+                        <li><a href="#">교보문고 기프트카드</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="main-menu">
+            <li class="menu-title">주요 서비스</li>
+            <li><a href="#">오늘의미션</a></li>
+            <li><a href="#">바로드림</a></li>
+        </ul>
+    </aside>
+
+    <label for="menu-toggle" class="menu-overlay"></label>
+
+    <header>
+        <div class="container">
+            <div class="header-main">
+                <h1 class="logo"><a href="main.html"><img src="images/logo_book.svg" alt="KYOBO 교보문고"></a></h1>
+                <div class="search-wrapper">
+                    <form class="search-form" action="#">
+                        <span class="search-type-label">통합검색</span>
+                        <span class="separator"></span>
+                        <input type="text" placeholder="잘 나가는 이야기에는 공식이 있다">
+                        <button type="submit">🔍</button>
+                    </form>
+                    <div class="search-results-dropdown">
+                        <div class="recommended-keywords">
+                            <h4>추천 검색어</h4>
+                            <div class="keywords-list">
+                                <a href="#">체인소 맨</a>
+                                <a href="#">AI</a>
+                                <a href="#">필사</a>
+                                <a href="#">북커버</a>
+                                <a href="#">GSAT</a>
+                                <a href="#">비트코인</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-content">
+                            <div class="recent-searches">
+                                <h4>최근 검색어</h4>
+                                <div class="no-recent"><p>!</p>최근 검색어가 없습니다.</div>
+                            </div>
+                            <div class="popular-products">
+                                <h4>지금 많이 찾는 상품</h4>
+                                <ul>
+                                    <li><a href="#"><img src="images/절창.jpg"><span>[국내도서] 절창</span></a></li>
+                                    <li><a href="#"><img src="images/더 트릭컬.jpg"><span>[국내도서] 더 트릭컬</span></a></li>
+                                    <li><a href="#"><img src="images/혼모노.jpg"><span>[국내도서] 혼모노</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon-menu"><a href="#" class="cart-icon">🛒</a><a href="#" class="user-icon">👤</a></div>
+            </div>
+            <div class="header-bottom">
+                <nav class="lnb">
+                    <ul>
+                        <li class="menu-icon"><label for="menu-toggle">☰</label></li>
+                        <li class="with-icon"><a href="#">연휴추천</a></li>
+                        <li class="with-icon"><a href="#">놀면뭐하니</a></li>
+                        <li><a href="#">베스트</a></li>
+                        <li><a href="#">신상품</a></li>
+                        <li><a href="#">이벤트</a></li>
+                        <li><a href="#">바로드림</a></li>
+                        <li><a href="#">PICKS</a></li>
+                        <li><a href="#">CASTing</a></li>
+                        <li><a href="#">컬처라운지</a></li>
+                        <li class="more-icon"><a href="#">+</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="image-slider">
+                <div class="slider-container">
+                    <a href="#" class="slide"><img src="images/배너1.jpg" alt="배너1"></a>
+                    <a href="#" class="slide"><img src="images/배너2.jpg" alt="배너2"></a>
+                </div>
+            </section>
+            <section class="bestsellers">
+                <h2>베스트셀러</h2>
+                <div class="tabs">
+                    <button type="button" class="active">종합</button>
+                    <button type="button">주간</button>
+                    <button type="button">실시간</button>
+                    <a href="#" class="more-link">+ 더보기</a>
+                </div>
+                <div class="carousel-container">
+                    <button type="button" class="arrow prev disabled">
+                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+                    <div class="book-carousel">
+                        <a href="#" class="book-card-link"><article class="book-card">
+                            <img class="book-cover" src="images/세이노의 가르침.jpg" alt="세이노의 가르침">
+                            <h3 class="book-title">세이노의 가르침</h3>
+                            <div class="book-details">
+                                <p class="book-description">피보다 진하게 살아라, 삶의 지혜를 담은 멘토링</p>
+                                <button type="button" class="cart-button">장바구니 담기</button>
+                            </div>
+                        </article></a>
+                        <a href="#" class="book-card-link"><article class="book-card">
+                            <img class="book-cover" src="images/역행자.jpg" alt="역행자">
+                            <h3 class="book-title">역행자</h3>
+                            <div class="book-details">
+                                <p class="book-description">자유와 경제적 자유를 위한 가장 확실한 공략집</p>
+                                <button type="button" class="cart-button">장바구니 담기</button>
+                            </div>
+                        </article></a>
+                        <a href="#" class="book-card-link"><article class="book-card">
+                            <img class="book-cover" src="images/불편한 편의점.jpg" alt="불편한 편의점">
+                            <h3 class="book-title">불편한 편의점</h3>
+                            <div class="book-details">
+                                <p class="book-description">지친 하루 끝에, 따뜻한 위로와 웃음이 기다리는 곳</p>
+                                <button type="button" class="cart-button">장바구니 담기</button>
+                            </div>
+                        </article></a>
+                        <a href="#" class="book-card-link"><article class="book-card">
+                            <img class="book-cover" src="images/도둑맞은 집중력.jpg" alt="도둑맞은 집중력">
+                            <h3 class="book-title">도둑맞은 집중력</h3>
+                            <div class="book-details">
+                                <p class="book-description">집중력 위기의 시대, 다시 몰입하기 위한 가장 강력한 통찰</p>
+                                <button type="button" class="cart-button">장바구니 담기</button>
+                            </div>
+                        </article></a>
+                        <a href="#" class="book-card-link"><article class="book-card">
+                            <img class="book-cover" src="images/나는 메트로폴리탄.jpg" alt="나는 메트로폴리탄 미술관의 경비원입니다">
+                            <h3 class="book-title">나는 메트로폴리탄 미술관의 경비원입니다</h3>
+                            <div class="book-details">
+                                <p class="book-description">세상에서 가장 아름다운 곳에서 가장 낮은 시선으로…</p>
+                                <button type="button" class="cart-button">장바구니 담기</button>
+                            </div>
+                        </article></a>
+                        <a href="#" class="book-card-link"><article class="book-card">
+                            <img class="book-cover" src="images/원씽.jpg" alt="원씽">
+                            <h3 class="book-title">원씽(The One Thing)</h3>
+                            <div class="book-details">
+                                <p class="book-description">복잡한 세상을 이기는 단순함의 힘, 당신의 '원씽'은 무엇…</p>
+                                <button type="button" class="cart-button">장바구니 담기</button>
+                            </div>
+                        </article></a>
+                        <a href="#" class="book-card-link"><article class="book-card">
+                            <img class="book-cover" src="images/클루지.jpg" alt="클루지">
+                            <h3 class="book-title">클루지</h3>
+                            <div class="book-details">
+                                <p class="book-description">복잡한 세상을 살아가는 우리에게 필요한 지혜와 통찰</p>
+                                <button type="button" class="cart-button">장바구니 담기</button>
+                            </div>
+                        </article></a>
+                    </div>
+                    <button type="button" class="arrow next">
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+                    </button>
+                </div>
+            </section>
+            
+            <section class="mds-pick">
+                <h2>MD's Pick</h2>
+                <div class="carousel-container">
+                    <button type="button" class="arrow prev disabled">
+                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+                    <div class="book-carousel">
+                        <a href="#" class="book-card-link"><article class="book-card">
+                            <img class="book-cover" src="images/데일 카네기 인간관계론.jpg" alt="데일 카네기 인간관계론">
+                            <h3 class="book-title">데일 카네기 인간관계론</h3>
+                            <div class="book-details">
+                                <p class="book-description">인간관계의 기술을 배우고, 더 나은 삶을 위한 지혜를 얻다</p>
+                                <button type="button" class="cart-button">장바구니 담기</button>
+                            </div>
+                        </article></a>
+                        <a href="#" class="book-card-link"><article class="book-card">
+                            <img class="book-cover" src="images/파친코.jpg" alt="파친코">
+                            <h3 class="book-title">파친코</h3>
+                            <div class="book-details">
+                                <p class="book-description">4대에 걸친 재일조선인 가족의 처절하고도 감동적인…</p>
+                                <button type="button" class="cart-button">장바구니 담기</button>
+                            </div>
+                        </article></a>
+                        <a href="#" class="book-card-link"><article class="book-card">
+                            <img class="book-cover" src="images/도파민네이션.jpg" alt="도파민네이션">
+                            <h3 class="book-title">도파민네이션</h3>
+                            <div class="book-details">
+                                <p class="book-description">쾌락 과잉 시대, 우리를 중독시키는 도파민의 비밀을…</p>
+                                <button type="button" class="cart-button">장바구니 담기</button>
+                            </div>
+                        </article></a>
+                        <a href="#" class="book-card-link"><article class="book-card">
+                            <img class="book-cover" src="images/지구 끝의 온실.jpg" alt="지구 끝의 온실">
+                            <h3 class="book-title">지구 끝의 온실</h3>
+                            <div class="book-details">
+                                <p class="book-description">멸망 이후의 세상, 푸른빛 희망을 찾아 떠나는 두 사람…</p>
+                                <button type="button" class="cart-button">장바구니 담기</button>
+                            </div>
+                        </article></a>
+                        <a href="#" class="book-card-link"><article class="book-card">
+                            <img class="book-cover" src="images/사피엔스.jpg" alt="사피엔스">
+                            <h3 class="book-title">사피엔스</h3>
+                            <div class="book-details">
+                                <p class="book-description">인류의 과거, 현재, 미래를 관통하는 거대하고도 대담한…</p>
+                                <button type="button" class="cart-button">장바구니 담기</button>
+                            </div>
+                        </article></a>
+                        <a href="#" class="book-card-link"><article class="book-card">
+                            <img class="book-cover" src="images/어떻게 살 것인가.jpg" alt="어떻게 살 것인가">
+                            <h3 class="book-title">어떻게 살 것인가</h3>
+                            <div class="book-details">
+                                <p class="book-description">인생의 의미와 목적에 대한 유시민 작가의 깊이 있는 탐구</p>
+                                <button type="button" class="cart-button">장바구니 담기</button>
+                            </div>
+                        </article></a>
+                        <a href="#" class="book-card-link"><article class="book-card">
+                            <img class="book-cover" src="images/어린왕자.jpg" alt="어린왕자">
+                            <h3 class="book-title">어린왕자 (초판본)</h3>
+                            <div class="book-details">
+                                <p class="book-description">세대를 넘어 사랑받는, 어른들을 위한 가장 아름다운 동화</p>
+                                <button type="button" class="cart-button">장바구니 담기</button>
+                            </div>
+                        </article></a>
+                        <a href="#" class="book-card-link"><article class="book-card">
+                            <img class="book-cover" src="images/1984.jpg" alt="1984">
+                            <h3 class="book-title">1984</h3>
+                            <div class="book-details">
+                                <p class="book-description">전체주의와 감시 사회에 대한 경고, 자유의 소중함을…</p>
+                                <button type="button" class="cart-button">장바구니 담기</button>
+                            </div>
+                        </article></a>
+                    </div>
+                    <button type="button" class="arrow next"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg></button>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-links"><a href="#">회사소개</a><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">고객센터</a></div>
+            <div class="copyright"><p>(주)교보문고 | 대표이사: OOO | 사업자등록번호: 123-45-67890</p><p>ⓒ KYOBO BOOK CENTRE. All Rights Reserved.</p></div>
+        </div>
+    </footer>
+
+</body>
+</html>
