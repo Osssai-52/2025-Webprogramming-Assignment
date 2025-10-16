@@ -1,278 +1,321 @@
-/* 주문 단계 표시 */
-.order-steps {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
-  font-size: 13px;
-  color: #555;
-  transform: translate(-85px, 15px); 
-}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>교보문고 장바구니</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+  <input type="checkbox" id="menu-toggle" class="menu-toggle-input">
 
-.order-steps .step {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: #ddd;
-  color: #fff;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  <aside class="mega-menu-sidebar">
+    <div class="menu-header">
+      <a href="main.html" class="menu-logo">
+        <img src="images/logo_book.svg" alt="KYOBO 교보문고">
+      </a>
+      <label for="menu-toggle" class="close-btn">×</label>
+    </div>
+    <ul class="main-menu">
+      <li class="menu-title">카테고리</li>
+      <li class="has-submenu">
+        <a href="#">국내도서</a>
+        <div class="submenu">
+          <h4>국내도서</h4>
+          <ul>
+            <li><a href="#">소설</a></li>
+            <li><a href="#">시/에세이</a></li>
+            <li><a href="#">경제/경영</a></li>
+            <li><a href="#">자기계발</a></li>
+            <li><a href="#">인문</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="has-submenu">
+        <a href="#">서양도서</a>
+        <div class="submenu">
+          <h4>서양도서</h4>
+          <ul>
+            <li><a href="#">문학</a></li>
+            <li><a href="#">취미/실용/여행</a></li>
+            <li><a href="#">예술/건축</a></li>
+            <li><a href="#">인문/사회</a></li>
+            <li><a href="#">경제/경영</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="has-submenu">
+        <a href="#">일본도서</a>
+        <div class="submenu">
+          <h4>일본도서</h4>
+          <ul>
+            <li><a href="#">잡지</a></li>
+            <li><a href="#">엔터테인먼트</a></li>
+            <li><a href="#">만화/애니</a></li>
+            <li><a href="#">문학</a></li>
+            <li><a href="#">라이트노벨</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="has-submenu">
+        <a href="#">교보Only</a>
+        <div class="submenu">
+          <h4>교보Only</h4>
+          <ul>
+            <li><a href="#">강연</a></li>
+            <li><a href="#">여행</a></li>
+            <li><a href="#">교보문고 굿즈</a></li>
+            <li><a href="#">책향</a></li>
+            <li><a href="#">교보문고 기프트카드</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <ul class="main-menu">
+      <li class="menu-title">주요 서비스</li>
+      <li><a href="#">오늘의미션</a></li>
+      <li><a href="#">바로드림</a></li>
+    </ul>
+  </aside>
 
-.order-steps .active {
-  background: #00af31; 
-}
+  <label for="menu-toggle" class="menu-overlay"></label>
 
-.order-steps .line {
-  width: 30px;
-  height: 2px;
-  background: #ccc;
-}
+  <header>
+    <div class="container">
+      <div class="header-main">
+        <h1 class="logo">
+          <a href="main.html"><img src="images/logo_book.svg" alt="KYOBO 교보문고"></a>
+        </h1>
+        <div class="search-wrapper">
+          <form class="search-form" action="#">
+            <span class="search-type-label">통합검색</span>
+            <span class="separator"></span>
+            <input type="text" placeholder="잘 나가는 이야기에는 공식이 있다">
+            <button type="submit">🔍</button>
+          </form>
+          <div class="search-results-dropdown">
+            <div class="recommended-keywords">
+              <h4>추천 검색어</h4>
+              <div class="keywords-list">
+                <a href="#">체인소 맨</a>
+                <a href="#">AI</a>
+                <a href="#">필사</a>
+                <a href="#">북커버</a>
+                <a href="#">GSAT</a>
+                <a href="#">비트코인</a>
+              </div>
+            </div>
+            <div class="dropdown-content">
+              <div class="recent-searches">
+                <h4>최근 검색어</h4>
+                <div class="no-recent">
+                  <p>!</p>최근 검색어가 없습니다.
+                </div>
+              </div>
+              <div class="popular-products">
+                <h4>지금 많이 찾는 상품</h4>
+                <ul>
+                  <li><a href="#"><img src="images/절창.jpg"><span>[국내도서] 절창</span></a></li>
+                  <li><a href="#"><img src="images/더 트릭컬.jpg"><span>[국내도서] 더 트릭컬</span></a></li>
+                  <li><a href="#"><img src="images/혼모노.jpg"><span>[국내도서] 혼모노</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="icon-menu">
+          <a href="cart.html" class="cart-icon">🛒</a>
+          <a href="#" class="user-icon">👤</a>
+        </div>
+      </div>
+      <div class="header-bottom">
+        <nav class="lnb">
+          <ul>
+            <li class="menu-icon"><label for="menu-toggle">☰</label></li>
+            <li class="with-icon"><a href="#">연휴추천</a></li>
+            <li class="with-icon"><a href="#">놀면뭐하니</a></li>
+            <li><a href="#">베스트</a></li>
+            <li><a href="#">신상품</a></li>
+            <li><a href="#">이벤트</a></li>
+            <li><a href="#">바로드림</a></li>
+            <li><a href="#">PICKS</a></li>
+            <li><a href="#">CASTing</a></li>
+            <li><a href="#">컬처라운지</a></li>
+            <li class="more-icon"><a href="#">+</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-.order-steps span {
-  margin-right: 4px;
-}
+  <div class="order-steps">
+    <div class="step active">1</div>
+    <span>장바구니</span>
+    <div class="line"></div>
+    <div class="step">2</div>
+    <span>사은품선택</span>
+    <div class="line"></div>
+    <div class="step">3</div>
+    <span>주문/결제</span>
+    <div class="line"></div>
+    <div class="step">4</div>
+    <span>주문완료</span>
+  </div>
 
-/* 광고 */
-.cart-ad {
-    width: 60px; 
-    margin-left: -10px; 
-    flex-shrink: 0;
-    position: sticky;
-    top: 80px;
-    height: max-content;
-    align-self: flex-start;
-    margin-top: 55px;
-}
+  <main class="cart-main container">
+    <aside class="cart-ad">
+      <img src="images/광고.png" alt="광고" style="width:100%; border-radius:8px;">
+    </aside>
 
+    <section class="cart-section">
+      <h1 class="cart-title">🛒 내 장바구니</h1>
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>상품정보</th>
+            <th>판매가</th>
+            <th>수량</th>
+            <th>합계</th>
+            <th>삭제</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a href="gift.html"><div class="product-info">
+                <img src="images/불편한 편의점.jpg" alt="불편한 편의점">
+                <div class="product-name">불편한 편의점</div>
+              </div></a>
+            </td>
+            <td>₩16,800</td>
+            <td>
+              <div class="quantity-control">
+                <button>-</button>
+                <input type="number" value="1" min="1">
+                <button>+</button>
+              </div>
+            </td>
+            <td>₩16,800</td>
+            <td><span class="remove-btn">삭제</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="product-info">
+                <img src="images/세이노의 가르침.jpg" alt="세이노의 가르침">
+                <div class="product-name">세이노의 가르침</div>
+              </div>
+            </td>
+            <td>₩7,200</td>
+            <td>
+              <div class="quantity-control">
+                <button>-</button>
+                <input type="number" value="2" min="1">
+                <button>+</button>
+              </div>
+            </td>
+            <td>₩14,400</td>
+            <td><span class="remove-btn">삭제</span></td>
+          </tr>
+        </tbody>
+      </table>
 
-/* 장바구니 메인 레이아웃 */
-.cart-main {
-  display: flex;
-  gap: 30px;
-  margin-top: 40px;
-  align-items: flex-start;
-}
+      <div class="md-recommend">
+        <h2>오늘의 책 추천</h2>
+        <div class="book-carousel">
+          <div class="book-card">
+            <img src="images/클루지.jpg" alt="쿨루지">
+            <h3>클루지</h3>
+            <p>₩18,000</p>
+            <button>장바구니 담기</button>
+          </div>
+          <div class="book-card">
+            <img src="images/혼모노.jpg" alt="혼모노">
+            <h3>혼모노</h3>
+            <p>₩18,000</p>
+            <button>장바구니 담기</button>
+          </div>
+          <div class="book-card">
+            <img src="images/원씽.jpg" alt="원씽">
+            <h3>원씽</h3>
+            <p>₩16,800</p>
+            <button>장바구니 담기</button>
+          </div>
+          <div class="book-card">
+            <img src="images/1984.jpg" alt="1984">
+            <h3>1984</h3>
+            <p>₩11,000</p>
+            <button>장바구니 담기</button>
+          </div>
+          <div class="book-card">
+            <img src="images/역행자.jpg" alt="역행자">
+            <h3>역행자</h3>
+            <p>₩19,500</p>
+            <button>장바구니 담기</button>
+          </div>
+        </div>
+      </div>
 
+      <div class="md-recommend">
+        <h2>새로 나온 책</h2>
+        <div class="book-carousel">
+          <div class="book-card">
+            <img src="images/도둑맞은 집중력.jpg" alt="도둑맞은 집중력">
+            <h3>도둑맞은 집중력</h3>
+            <p>₩18,800</p>
+            <button>장바구니 담기</button>
+          </div>
+          <div class="book-card">
+            <img src="images/절창.jpg" alt="절창">
+            <h3>절창</h3>
+            <p>₩18,000</p>
+            <button>장바구니 담기</button>
+          </div>
+          <div class="book-card">
+            <img src="images/도파민네이션.jpg" alt="도파민네이션">
+            <h3>도파민네이션</h3>
+            <p>₩18,000</p>
+            <button>장바구니 담기</button>
+          </div>
+          <div class="book-card">
+            <img src="images/클루지.jpg" alt="클루지">
+            <h3>클루지</h3>
+            <p>₩18,000</p>
+            <button>장바구니 담기</button>
+          </div>
+          <div class="book-card">
+            <img src="images/파친코.jpg" alt="파친코">
+            <h3>파친코</h3>
+            <p>₩15,800</p>
+            <button>장바구니 담기</button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-/* 장바구니 목록 */
-.cart-section {
-  flex-grow: 1;
-}
+    <aside class="cart-summary-box">
+      <h2>결제 요약</h2>
+      <p>상품 금액: <span>₩31,200</span></p>
+      <p>배송비: <span>₩2,500</span></p>
+      <p>상품 할인: <span>₩0</span></p>
+      <p>결제 예정 금액: <span>₩33,700</span></p>
+      <p>적립 예정 포인트: <span>₩337</span></p>
+      <a href="free gift.html"><button class="checkout-btn">주문하기</button></a>
+    </aside>
+  </main>
 
-.cart-title {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-/* 테이블 */
-.cart-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.cart-table th {
-  background-color: #f4f9f5;
-  color: #00af31;
-  font-weight: 700;
-  border-bottom: 2px solid #00af31;
-  padding: 12px;
-  font-size: 15px;
-}
-.cart-table td {
-  border-bottom: 1px solid #eee;
-  padding: 14px 10px;
-  text-align: center;
-  font-size: 14px;
-}
-.cart-table tr:last-child td {
-  border-bottom: none;
-}
-
-/* 상품 정보 */
-.product-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.product-info img {
-  width: 65px;
-  height: 95px;
-  object-fit: cover;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-}
-.product-name {
-  text-align: left;
-  font-size: 15px;
-  font-weight: 600;
-  color: #333;
-}
-
-/* 수량 조절 버튼 */
-.quantity-control {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-}
-.quantity-control button {
-  width: 26px;
-  height: 26px;
-  border: none;
-  background-color: #00af31;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background 0.2s;
-}
-.quantity-control button:hover {
-  background-color: #009b2a;
-}
-.quantity-control input {
-  width: 45px;
-  text-align: center;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-/* 삭제 버튼 */
-.remove-btn {
-  color: #e63946;
-  font-weight: 600;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-.remove-btn:hover {
-  color: #c62828;
-  text-decoration: underline;
-}
-
-/* 결제 요약 카드 */
-.cart-summary-box {
-  width: 270px;
-  padding: 25px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #fff;
-  position: sticky;
-  top: 80px;
-    height: max-content;
-    align-self: flex-start;
-    margin-top: 55px; 
-}
-.cart-summary-box h2 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: #00af31;
-  font-weight: 700;
-}
-
-.cart-summary-box p {
-  margin-bottom: 10px;
-  font-size: 14px;
-  display: flex;
-  justify-content: space-between;
-}
-
-/* 총 금액 강조 */
-.cart-summary-box p.total {
-  font-weight: 700;
-  color: #00af31;
-  font-size: 15px;
-  border-top: 1px solid #eee;
-  padding-top: 8px;
-}
-
-.checkout-btn {
-  width: 100%;
-  padding: 12px;
-  background-color: #00af31;
-  color: #fff;
-  font-weight: 700;
-  border-radius: 6px;
-  margin-top: 15px;
-  transition: background 0.2s, transform 0.1s;
-}
-.checkout-btn:hover {
-  background-color: #009b2a;
-  transform: translateY(-1px);
-}
-
-/* 장바구니와 추천 사이 여백 */
-.cart-section .md-recommend {
-    margin-top: 60px; 
-}
-/* 책 추천 */
-.md-recommend h2 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #00af31;
-}
-
-.book-carousel {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 20px;
-}
-
-.book-card {
-    background: #fff;
-    border-radius: 12px;
-    text-align: center;
-    padding: 15px;
-    border: 1px solid #eee;
-    transition: 0.2s;
-}
-
-.book-card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transform: translateY(-3px);
-}
-
-.book-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.book-card h3 {
-    font-size: 15px;
-    margin-bottom: 5px;
-}
-
-.book-card p {
-    color: #00af31;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.book-card button {
-    width: 100%;
-    background-color: #00af31;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 6px 0;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.2s;
-}
-
-.book-card button:hover {
-    background-color: #009b2a;
-}
-
-input[type="radio"] {
-  accent-color: green; 
-}
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="#">회사소개</a>
+        <a href="#">이용약관</a>
+        <a href="#">개인정보처리방침</a>
+        <a href="#">고객센터</a>
+      </div>
+      <div class="copyright">
+        <p>(주)교보문고 | 대표이사: OOO | 사업자등록번호: 123-45-67890</p>
+        <p>ⓒ KYOBO BOOK CENTRE. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
