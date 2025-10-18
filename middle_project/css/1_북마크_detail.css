@@ -568,14 +568,13 @@ footer {
     background-color: #fff;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     justify-content: center;
 }
 .book-cover-box {
     flex-shrink: 0;
 }
 .bookcover {
-    width: 280px;
+    width: 308px;
     height: auto;
     border: 1px solid #eee;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -585,11 +584,11 @@ footer {
 }
 .weekly-best {
     margin-top: 20px;
-    width: 350px;
+    width: 300px;
     height: auto;
 }
 .book-title {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 700;
     margin-bottom: 10px;
 }
@@ -793,18 +792,22 @@ section h3 {
     font-size: 20px;
     margin-bottom: 15px;
 }
+.book-description {
+    font-size: 13px;
+}
 .book-contents ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    font-size: 15px;
+    font-size: 13px;
 }
 .book-review {
-    font-size: 15px;
+    font-size: 13px;
 }
 .book-info-table table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 13px;
 }
 .book-info-table th, .book-info-table td {
     border-bottom: 1px solid #ddd;
@@ -813,7 +816,7 @@ section h3 {
 }
 .book-info-table th {
     width: 25%;
-    color: #555;
+    color: #1e1e1e;
 }
 
 /*하단 구매 버튼*/
@@ -912,4 +915,8 @@ section h3 {
 }
 .button-purchase:hover {
     background: #00af31;
+}
+
+footer {
+  margin-bottom: 73px;
 }
