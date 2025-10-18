@@ -50,6 +50,7 @@ footer {
 }
 .logo img { 
     width: 180px; 
+    height: auto;
     vertical-align: middle; 
 }
 .icon-menu { 
@@ -293,7 +294,7 @@ footer {
     border-bottom: 1px solid #eee; 
 }
 .menu-header .menu-logo img { 
-    height: 24px; 
+    height: 32px; 
     width: auto; 
 }
 .close-btn { 
