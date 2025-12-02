@@ -165,6 +165,14 @@
 
     <section class="cart-section">
       <h1 class="cart-title">🛒 내 장바구니</h1>
+      
+      <div class="cart-controls">
+        <input type="checkbox" id="select-all-items">
+        <label for="select-all-items">전체 선택</label>
+        <button id="delete-selected-btn">선택 삭제</button>
+        <button id="delete-all-btn">전체 삭제</button>
+      </div>
+
       <table class="cart-table">
         <thead>
           <tr>
@@ -176,43 +184,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <a href="1_북마크_detail_불편한편의점.html"><div class="product-info">
-                <img src="images/1_불편한 편의점.jpg" alt="불편한 편의점">
-                <div class="product-name">불편한 편의점</div>
-              </div></a>
-            </td>
-            <td>₩16,800</td>
-            <td>
-              <div class="quantity-control">
-                <button>-</button>
-                <input type="number" value="1" min="1">
-                <button>+</button>
-              </div>
-            </td>
-            <td>₩16,800</td>
-            <td><span class="remove-btn">삭제</span></td>
-          </tr>
-          <tr>
-            <td>
-              <div class="product-info">
-                <img src="images/1_세이노의 가르침.jpg" alt="세이노의 가르침">
-                <div class="product-name">세이노의 가르침</div>
-              </div>
-            </td>
-            <td>₩7,200</td>
-            <td>
-              <div class="quantity-control">
-                <button>-</button>
-                <input type="number" value="2" min="1">
-                <button>+</button>
-              </div>
-            </td>
-            <td>₩14,400</td>
-            <td><span class="remove-btn">삭제</span></td>
-          </tr>
-        </tbody>
+          </tbody>
       </table>
 
       <div class="md-recommend">
@@ -290,11 +262,11 @@
 
     <aside class="cart-summary-box">
       <h2>결제 요약</h2>
-      <p>상품 금액: <span>₩31,200</span></p>
-      <p>배송비: <span>₩2,500</span></p>
-      <p>상품 할인: <span>₩0</span></p>
-      <p>결제 예정 금액: <span>₩33,700</span></p>
-      <p>적립 예정 포인트: <span>₩337</span></p>
+      <p data-label="상품 금액:"><span>₩0</span></p>
+      <p data-label="배송비:"><span>₩0</span></p>
+      <p data-label="상품 할인:"><span>0</span></p>
+      <p class="total-amount" data-label="결제 예정 금액:"><span>₩0</span></p>
+      <p data-label="적립 예정 포인트:"><span>0</span></p>
       <a href="1_북마크_gift.html"><button class="checkout-btn">주문하기</button></a>
     </aside>
   </main>
@@ -313,5 +285,7 @@
       </div>
     </div>
   </footer>
+
+  <script src="js/1_북마크_cart.js"></script>
 </body>
 </html>
