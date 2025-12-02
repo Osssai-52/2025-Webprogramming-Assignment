@@ -41,8 +41,8 @@
 .tabs { 
     display: flex; 
     align-items: center; 
-    border-bottom: 1px solid #ddd; 
-    margin-bottom: 30px; 
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 0px;
 }
 .tabs button { 
     font-size: 16px; 
@@ -93,16 +93,14 @@
     cursor: not-allowed; 
 }
 .book-carousel { 
-    flex-grow: 1; 
-    display: grid; 
-    grid-auto-flow: column; 
-    grid-auto-columns: calc((100% / 6) - 17px); 
-    gap: 20px; 
-    overflow-x: auto; 
-    padding: 10px 0; 
-    scroll-snap-type: x mandatory; 
-    -ms-overflow-style: none; 
-    scrollbar-width: none; 
+    flex-grow: 1;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 6) - 17px);
+    gap: 20px;
+    overflow: hidden;
+    padding: 30px 4px;
+    scroll-snap-type: x mandatory;
 }
 .book-carousel::-webkit-scrollbar { 
     display: none; 

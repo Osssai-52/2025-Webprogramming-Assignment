@@ -73,16 +73,16 @@ footer {
 .search-form:focus-within { 
     border-color: #00af31; 
 }
-.search-type-label {
+.search-label {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400; 
     margin-right: 10px;
     color: #333;
     position: relative; 
     padding-right: 15px; 
     cursor: default; 
 }
-.search-type-label::after {
+.search-label::after {
     content: '▼';
     position: absolute;
     right: 0;
@@ -122,7 +122,7 @@ footer {
     padding: 20px; 
     margin-top: 5px; 
 }
-.search-wrapper:focus-within .search-results-dropdown { 
+.search-results-dropdown.show { 
     display: block; 
 }
 .search-results-dropdown h4 { 
@@ -255,8 +255,18 @@ footer {
 }
 
 /*사이드 바*/
-.menu-toggle-input { 
-    display: none; 
+.lnb .menu-icon button {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 32px; 
+    height: 32px; 
+    border: 1px solid #ddd; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    font-size: 20px; 
+    background: none;
+    padding: 0;
 }
 .mega-menu-sidebar { 
     position: fixed; 
@@ -267,8 +277,11 @@ footer {
     background-color: #fff; 
     box-shadow: 4px 0 15px rgba(0,0,0,0.1); 
     z-index: 1000; 
-    transform: translateX(-100%); 
+    transform: translateX(-100%);
     transition: transform 0.3s ease-in-out; 
+}
+.mega-menu-sidebar.active {
+    transform: translateX(0);
 }
 .menu-overlay { 
     position: fixed; 
@@ -278,13 +291,20 @@ footer {
     height: 100vh; 
     background-color: rgba(0, 0, 0, 0.5); 
     z-index: 999; 
-    display: none; 
+    display: none;
 }
-.menu-toggle-input:checked ~ .mega-menu-sidebar { 
-    transform: translateX(0); 
+.menu-overlay.active {
+    display: block;
 }
-.menu-toggle-input:checked ~ .menu-overlay { 
-    display: block; 
+.close-btn { 
+    font-size: 28px; 
+    font-weight: 300; 
+    color: #888; 
+    cursor: pointer; 
+    line-height: 1;
+    border: none;
+    background: none;
+    padding: 0;
 }
 .menu-header { 
     display: flex; 
