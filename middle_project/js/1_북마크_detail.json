@@ -1,5 +1,7 @@
-{
-  "convenience_store": {
+[
+  {
+    "id": 1,
+    "key": "convenience_store",
     "title": "불편한 편의점(벚꽃 에디션)",
     "author": "김호연 저자(글)",
     "publisher": "나무옆의자 · 2021년 04월 20일",
@@ -46,8 +48,9 @@
     "size": "137*204*25mm / 333g",
     "total_volume": "1권"
   },
-
-  "little_prince": {
+  {
+    "id": 2,
+    "key": "little_prince",
     "title": "어린왕자 (초판본)",
     "author": "앙투안 드 생텍쥐페리",
     "publisher": "더스토리 · 2021년 06월 10일",
@@ -90,4 +93,4 @@
     "size": "128*188mm",
     "total_volume": "1권"
   }
-}
+]

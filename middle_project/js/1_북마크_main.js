@@ -1,10 +1,11 @@
 // 1. 책 데이터
 const bestsellers = [
-    { 
+    {
+        id: 1,
         title: "불편한 편의점", 
         img: "images/1_불편한 편의점.jpg", 
         desc: "지친 하루 끝에, 따뜻한 위로와 웃음이 기다리는 곳.", 
-        link: "1_북마크_detail_불편한편의점.html" 
+        link: "1_북마크_detail.html?id=1" 
     },
     { 
         title: "세이노의 가르침", 
@@ -45,11 +46,12 @@ const bestsellers = [
 ];
 
 const mdPicks = [
-    { 
+    {
+        id: 2,
         title: "어린왕자 (초판본)", 
         img: "images/1_어린왕자.jpg", 
         desc: "세대를 넘어 사랑받는, 어른들을 위한 가장 아름다운 동화.", 
-        link: "1_북마크_detail_어린왕자.html" 
+        link: "1_북마크_detail.html?id=2" 
     },
     { 
         title: "파친코", 

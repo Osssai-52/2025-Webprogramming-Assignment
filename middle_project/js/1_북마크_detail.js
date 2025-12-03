@@ -4,7 +4,7 @@ const bookId = params.get("id");
 fetch("js/1_북마크_detail.json")
   .then(res => res.json())
   .then(data => {
-    const book = data[bookId];
+    const book = data.find(item => item.id == bookId);
     if (!book) return alert("책 정보를 찾을 수 없습니다.");
 
     // 기본 정보
