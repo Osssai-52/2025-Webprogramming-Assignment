@@ -19,7 +19,7 @@
     flex-shrink: 0;
 }
 .bookcover {
-    width: 308px;
+    width: 290px;
     height: auto;
     border: 1px solid #eee;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -62,8 +62,8 @@
     border: 1px solid #ccc;
     background-color: #fff;
     border-radius: 999px;
-    padding: 5px 15px;
-    font-size: 10px;
+    padding: 10px 22px;
+    font-size: 13px;
     color: #333;
     cursor: pointer;
 }
@@ -248,21 +248,21 @@ section h3 {
     margin-bottom: 15px;
 }
 .book-description {
-    font-size: 13px;
+    font-size: 15px;
 }
 .book-contents ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    font-size: 13px;
+    font-size: 15px;
 }
-.book-review {
-    font-size: 13px;
+#book-review {
+    font-size: 15px;
 }
 .book-info-table table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 13px;
+    font-size: 15px;
 }
 .book-info-table th, .book-info-table td {
     border-bottom: 1px solid #ddd;
@@ -373,5 +373,101 @@ section h3 {
 }
 
 footer {
-  margin-bottom: 73px;
+    margin-bottom: 73px;
+}
+
+/*주간베스트*/
+.weekly-box {
+    margin-top: 25px;
+    padding: 12px 15px;
+    width: 300px;
+    border: 1px solid #e4e4e4;
+    border-radius: 12px;
+    background: #fafafa;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/*주간베스트 제목*/
+.weekly-rank {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/*왕관*/
+.weekly-icon {
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+}
+
+/*주간베스트 텍스트 (굵게)*/
+.weekly-title {
+    font-weight: 700;
+    margin-right: 3px;
+}
+
+/*순위 숫자*/
+.rank-number {
+    font-weight: 700;
+    display: inline-block;
+    margin-right: -5px;
+}
+
+/*점수, 리뷰, 코멘트 박스*/
+.weekly-score-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weekly-score-box .left,
+.weekly-score-box .right {
+    flex: 1;
+    text-align: center;
+}
+
+/*구분선*/
+.weekly-score-box .divider {
+    width: 1px;
+    height: 93px;
+    background: #ddd;
+}
+
+/*점수*/
+.score-number {
+    font-size: 23px;
+    font-weight: 700;
+    color: #00af31;
+}
+
+/*클로버, 리뷰 수*/
+.review-count {
+    font-size: 14px;
+    color: #555;
+    margin-top: 6px;
+}
+
+.clover-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin: 0 1px;
+}
+
+/*최고예요*/
+.best-comment {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2a42b1;
+    margin-bottom: 5px;
+}
+
+/*n%의 구매자*/
+.buyer-percent {
+    font-size: 14px;
+    color: #333;
 }

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>북마크-불편한 편의점</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/1_북마크_style.css">
+        <link rel="stylesheet" href="css/1_북마크_detail.css">
+    </head>
+
+    <body>
+
+    <aside class="mega-menu-sidebar">
+        <div class="menu-header">
+            <a href="1_북마크_main.html" class="menu-logo">
+                <img src="images/1_logo_book.png" alt="BOOK MARK 북마크">
+            </a>
+            <button id="menu-close-btn" class="close-btn">×</button>
+        </div>
+        <ul class="main-menu">
+            <li class="menu-title">카테고리</li>
+            <li class="has-submenu">
+                <a href="#">국내도서</a>
+                <div class="submenu">
+                    <h4>국내도서</h4>
+                    <ul>
+                        <li><a href="#">소설</a></li>
+                        <li><a href="#">시/에세이</a></li>
+                        <li><a href="#">경제/경영</a></li>
+                        <li><a href="#">자기계발</a></li>
+                        <li><a href="#">인문</a></li>
+                        <li><a href="#">역사/문화</a></li>
+                        <li><a href="#">과학</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="has-submenu">
+                <a href="#">서양도서</a>
+                <div class="submenu">
+                    <h4>서양도서</h4>
+                    <ul>
+                        <li><a href="#">문학</a></li>
+                        <li><a href="#">인문/사회</a></li>
+                        <li><a href="#">경제/경영</a></li>
+                        <li><a href="#">과학/기술</a></li>
+                        <li><a href="#">예술/건축</a></li>
+                        <li><a href="#">ELT/사전</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="has-submenu">
+                <a href="#">일본도서</a>
+                <div class="submenu">
+                    <h4>일본도서</h4>
+                    <ul>
+                        <li><a href="#">잡지</a></li>
+                        <li><a href="#">만화/애니</a></li>
+                        <li><a href="#">라이트노벨</a></li>
+                        <li><a href="#">문학</a></li>
+                        <li><a href="#">엔터테인먼트</a></li>
+                        <li><a href="#">실용/취미</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="has-submenu">
+                <a href="#">북마크Only</a>
+                <div class="submenu">
+                    <h4>북마크Only</h4>
+                    <ul>
+                        <li><a href="#">단독 기획전</a></li>
+                        <li><a href="#">저자 친필 사인본</a></li>
+                        <li><a href="#">한정판 굿즈</a></li>
+                        <li><a href="#">북마크 캐스팅</a></li>
+                        <li><a href="#">독점 연재</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="main-menu">
+            <li class="menu-title">주요 서비스</li>
+            <li><a href="#">오늘의미션</a></li>
+            <li><a href="#">바로드림</a></li>
+        </ul>
+    </aside>
+
+    <label for="menu-toggle" class="menu-overlay"></label>
+
+    <header>
+        <div class="container">
+            <div class="header-main">
+                <h1 class="logo">
+                    <a href="1_북마크_main.html">
+                        <img src="images/1_logo_book.png" alt="BOOK MARK 북마크">
+                    </a>
+                </h1>
+                <div class="search-wrapper">
+                    <form class="search-form" action="#">
+                        <span class="search-label">통합검색</span>
+                        <span class="separator"></span>
+                        <input type="text" placeholder="잘 나가는 이야기에는 공식이 있다">
+                        <button type="submit">🔍</button>
+                    </form>
+                    <div class="search-results-dropdown">
+                        <div class="recommended-keywords">
+                            <h4>추천 검색어</h4>
+                            <div class="keywords-list">
+                                <a href="#">체인소 맨</a><a href="#">AI</a><a href="#">필사</a><a href="#">북커버</a><a href="#">GSAT</a><a href="#">비트코인</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-content">
+                            <div class="recent-searches">
+                                <h4>최근 검색어</h4>
+                                <div class="no-recent"><p>!</p>최근 검색어가 없습니다.</div>
+                            </div>
+                            <div class="popular-products">
+                                <h4>지금 많이 찾는 상품</h4>
+                                <ul>
+                                    <li><a href="#"><img src="images/1_절창.jpg"><span>[국내도서] 절창</span></a></li>
+                                    <li><a href="#"><img src="images/1_더 트릭컬.jpg"><span>[국내도서] 더 트릭컬</span></a></li>
+                                    <li><a href="#"><img src="images/1_혼모노.jpg"><span>[국내도서] 혼모노</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="icon-menu">
+                    <a href="1_북마크_cart.html" class="cart-icon">🛒</a>
+                    <a href="#" class="user-icon">👤</a>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <nav class="lnb">
+                    <ul>
+                        <li class="menu-icon"><button id="menu-open-btn">☰</button></li>
+                        <li class="with-icon"><a href="#">연휴추천</a></li>
+                        <li class="with-icon"><a href="#">놀면뭐하니</a></li>
+                        <li><a href="#">베스트</a></li>
+                        <li><a href="#">신상품</a></li>
+                        <li><a href="#">이벤트</a></li>
+                        <li><a href="#">바로드림</a></li>
+                        <li><a href="#">PICKS</a></li>
+                        <li class="more-icon"><a href="#">+</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!--상세 컨텐츠-->
+        <main class="detail">
+        <article class="book-detail">
+            <div class="book-info">
+                <h1 id="book-title" class="book-title"></h1>
+                <p class="book-author"><strong id="book-author"></strong></p>
+                <p id="book-publisher"></p>
+                <div id="weekly-box" class="weekly-box" style="display:none;">
+                    <div class="weekly-rank">
+                        <img src="images/1_왕관.png" class="weekly-icon">
+                        <span class="weekly-title">주간베스트</span>
+                        국내도서 <span id="rank-total" class="rank-number"></span>위 ·
+                        소설 <span id="rank-category" class="rank-number"></span>위
+                    </div>
+
+
+                    <div class="weekly-score-box">
+                        <div class="left">
+                            <div id="weekly-score" class="score-number"></div>
+                            <div id="weekly-clovers"></div>
+                            <div id="weekly-review-count" class="review-count"></div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="right">
+                            <div id="weekly-comment" class="best-comment"></div>
+                            <div id="weekly-buyer-percent" class="buyer-percent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-cover-box">
+                <img id="book-cover" class="bookcover">
+                <div class="preview-buttons">
+                    <button class="preview-button">📖 미리보기</button>
+                    <button class="preview-button">🔍 eBook 미리보기</button>
+                </div>
+            </div>
+
+            <aside class="purchase-box">
+                <div class="price-box">
+                    <span class="discount" id="discount-rate"></span>
+                    <span class="sale-price" id="sale-price"></span>
+                    <span class="original-price" id="original-price"></span>
+                </div>
+
+                <div class="benefit">
+                    <p class="benefit-title">적립/혜택</p>
+                    <p class="benefit-point" id="point"></p>
+                </div>
+
+                <div class="delivery">
+                    <p class="delivery-title">배송안내</p>
+                    <div class="delivery-info">
+                        <span class="tag">새벽배송</span>
+                        <span class="arrival" id="arrival-date"></span>
+                    </div>
+                    <p class="delivery-sub">기본배송지 기준</p>
+                </div>
+
+                <p class="login-text">
+                    <a href="#">로그인</a> 후 정확한 배송 안내를 받아보세요!
+                </p>
+
+                <div class="event-box">
+                    <p>이달의 꽃과 함께 책을 받아보세요!</p>
+                    <button class="detail-button">자세히 보기</button>
+                </div>
+            </aside>
+        </article>
+
+        <div class="info-image">
+            <img id="info-image">
+        </div>
+
+        <article>
+            <section class="book-description">
+                <h3>책 소개</h3>
+                <p id="book-summary" class="summary-text"></p>
+                <p id="book-description"></p>
+            </section>
+
+            <section class="book-contents">
+                <h3>목차</h3>
+                <ul id="book-contents"></ul>
+            </section>
+
+            <section>
+                <h3 id="review-title"></h3>
+                <p id="review-detail"></p>
+            </section>
+
+            <section class="book-info-table">
+                <h3>기본정보</h3>
+                <table>
+                    <tr><th>ISBN</th><td id="isbn"></td></tr>
+                    <tr><th>발행(출시)일자</th><td id="publish-date"></td></tr>
+                    <tr><th>쪽수</th><td id="page-count"></td></tr>
+                    <tr><th>크기</th><td id="size"></td></tr>
+                    <tr><th>총권수</th><td id="total-volume"></td></tr>
+                </table>
+            </section>
+        </article>
+    </main>
+
+    <!-- 하단 구매 바 -->
+    <div class="purchase-bar">
+        <div class="purchase-left">
+            <p>총 상품 금액 <strong id="bottom-price"></strong></p>
+        </div>
+
+        <div class="purchase-right">
+            <div class="quantity">
+                <button id="decrease">−</button>
+                <span id="quantity">1</span>
+                <button id="increase">+</button>
+            </div>
+
+            <input type="checkbox" id="like-toggle" class="like-checkbox">
+            <label for="like-toggle" class="button-like">♡</label>
+
+            <button class="outline">🎁선물하기</button>
+            <button class="outline">장바구니</button>
+            <button class="outline">바로드림</button>
+            <button class="button-purchase">바로구매</button>
+        </div>
+    </div>
+
+    <div id="common-footer"></div>
+
+    <script src="js/1_북마크_style.js"></script>
+    <script src="js/1_북마크_detail.js"></script>
+    </body>
+</html>
