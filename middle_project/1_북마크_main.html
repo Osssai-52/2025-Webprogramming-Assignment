@@ -117,22 +117,18 @@
                                 <div class="no-recent"><p>!</p>최근 검색어가 없습니다.</div>
                             </div>
                             <div class="popular-products">
-                                <h4>지금 많이 찾는 상품</h4>
-                                <ul>
-                                    <li><a href="#"><img src="images/1_절창.jpg"><span>[국내도서] 절창</span></a></li>
-                                    <li><a href="#"><img src="images/1_더 트릭컬.jpg"><span>[국내도서] 더 트릭컬</span></a></li>
-                                    <li><a href="#"><img src="images/1_혼모노.jpg"><span>[국내도서] 혼모노</span></a></li>
-                                </ul>
+                                <h4>실시간 인기 도서 (Top 3)</h4>
+                                <ul id="realtime-ranking-list"></ul>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="icon-menu">
                     <a href="1_북마크_cart.html" class="cart-icon">🛒</a>
                     <a href="#" class="user-icon">👤</a>
                 </div>
             </div>
+
             <div class="header-bottom">
                 <nav class="lnb">
                     <ul>
@@ -144,6 +140,8 @@
                         <li><a href="#">이벤트</a></li>
                         <li><a href="#">바로드림</a></li>
                         <li><a href="#">PICKS</a></li>
+                        <li><a href="#">CASTing</a></li>
+                        <li><a href="#">컬처라운지</a></li>
                         <li class="more-icon"><a href="#">+</a></li>
                     </ul>
                 </nav>
@@ -180,6 +178,17 @@
             </div>
     </main>
     <div id="common-footer"></div>
+
+    <div id="custom-modal" class="alert-overlay">
+        <div class="alert-box">
+            <div class="alert-icon">!</div>
+            <p id="modal-message" class="alert-message">알림 내용</p>
+            <div class="modal-buttons">
+                <button id="modal-cancel-btn" class="alert-btn cancel" style="display:none;">취소</button>
+                <button id="modal-ok-btn" class="alert-btn">확인</button>
+            </div>
+        </div>
+    </div>
 
     <script src="js/1_북마크_style.js"></script>
     <script src="js/1_북마크_main.js"></script>

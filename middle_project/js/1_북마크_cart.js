@@ -167,18 +167,28 @@ function bindEvents() {
     // 3. 선택 삭제 버튼 이벤트
     document.getElementById('delete-selected-btn').onclick = () => {
         const newCart = cartItems.filter(item => !item.selected);
-        if (newCart.length !== cartItems.length && confirm('선택된 상품을 삭제하시겠습니까?')) {
+        if (newCart.length === cartItems.length) {
+            showCustomAlert("선택된 상품이 없습니다.");
+            return;
+        }
+
+        showCustomConfirm('선택된 상품을 삭제하시겠습니까?', function() {
             saveCartItems(newCart);
             renderCart();
-        }
+        });
     };
 
     // 3. 전체 삭제 버튼 이벤트
     document.getElementById('delete-all-btn').onclick = () => {
-        if (cartItems.length > 0 && confirm('장바구니의 모든 상품을 삭제하시겠습니까?')) {
+        if (cartItems.length === 0) {
+            showCustomAlert("장바구니가 이미 비어있습니다.");
+            return;
+        }
+
+        showCustomConfirm('장바구니의 모든 상품을 삭제하시겠습니까?', function() {
             saveCartItems([]);
             renderCart();
-        }
+        });
     };
 }
 
@@ -219,6 +229,6 @@ document.querySelectorAll('.book-card button').forEach(button => {
 
         saveCartItems(cartItems);
         renderCart();
-        alert(`${itemName}이 장바구니에 추가되었습니다.`);
+        showCustomAlert(`${itemName}이 장바구니에 추가되었습니다.`);
     };
 });
