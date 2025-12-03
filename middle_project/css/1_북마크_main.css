@@ -30,8 +30,8 @@
 
 /*베스트 셀러. MD's Pick*/
 .bestsellers, .mds-pick { 
-    margin-top: 50px; 
-    margin-bottom: 50px; 
+    margin-top: 40px; 
+    margin-bottom: 20px; 
 }
 .bestsellers h2, .mds-pick h2 { 
     font-size: 24px; 
@@ -162,9 +162,11 @@
 .book-description { 
     font-size: 13px; 
     color: #555; 
+    margin-top: 10px;
     margin-bottom: 10px; 
     line-height: 1.5; 
-    height: 3.9em; 
+    max-height: 3em;
+    -webkit-line-clamp: 2;
     display: -webkit-box; 
     -webkit-line-clamp: 3; 
     -webkit-box-orient: vertical; 
