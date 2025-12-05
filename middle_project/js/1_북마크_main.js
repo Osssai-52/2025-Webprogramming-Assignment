@@ -15,7 +15,7 @@ function renderBooks(containerId, bookList) {
     let html = '';
     bookList.forEach(book => {
         html += `
-            <a href="${book.link}" class="book-card-link" onclick="handleBookClick(${book.id})">
+            <a href="1_북마크_detail.html?id=${book.id}" class="book-card-link" onclick="handleBookClick(${book.id})">
                 <article class="book-card">
                     <img class="book-cover" src="${book.img}" alt="${book.title}">
                     <h3 class="book-title">${book.title}</h3>
