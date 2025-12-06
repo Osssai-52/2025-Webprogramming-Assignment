@@ -4,22 +4,36 @@ const FREE_DELIVERY_THRESHOLD = 50000; // 배송비 무료 기준 금액 (5만�
 
 // 1. 웹 스토리지에서 장바구니 데이터 로드 또는 초기 데이터 설정
 function getCartItems() {
-    const savedCart = localStorage.getItem(CART_STORAGE_KEY);
-    if (savedCart) {
-        return JSON.parse(savedCart);
-    }
-    // 초기 기본 데이터 설정 (요청사항 반영)
-    const initialCart = [
-        { id: 1, name: "불편한 편의점", price: 16800, quantity: 1, image: "images/1_불편한 편의점.jpg", selected: true },
-        { id: 2, name: "세이노의 가르침", price: 7200, quantity: 2, image: "images/1_세이노의 가르침.jpg", selected: true }
-    ];
-    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(initialCart));
-    return initialCart;
+    // 상세 페이지에서 저장한 'cart' 키로 데이터 가져오기
+    const savedCart = localStorage.getItem('cart');
+    if (!savedCart) return [];
+    
+    const cartData = JSON.parse(savedCart);
+    
+    // 상세 페이지 형식을 장바구니 페이지 형식으로 변환
+    return cartData.map(item => ({
+        id: item.id,
+        name: item.title,
+        image: item.cover,
+        price: item.price,
+        quantity: item.quantity,
+        selected: item.selected !== undefined ? item.selected : true // 기본값 true
+    }));
 }
 
 // 2. 장바구니 데이터 저장 (변경 사항이 있을 때마다 호출)
 function saveCartItems(items) {
-    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+    // 상세 페이지와 호환되는 형식으로 저장
+    const cartData = items.map(item => ({
+        id: item.id,
+        title: item.name,
+        author: item.author || '', // author 정보가 없으면 빈 문자열
+        cover: item.image,
+        price: item.price,
+        quantity: item.quantity,
+        selected: item.selected
+    }));
+    localStorage.setItem('cart', JSON.stringify(cartData));
 }
 
 // 3. 상품 목록 렌더링 및 이벤트 바인딩 (DOM 동적 생성)
@@ -87,10 +101,11 @@ function updateSummary() {
     const totalPaymentAmount = totalProductAmount + shippingFee;
     const totalPoints = Math.floor(totalPaymentAmount * 0.01); // 1% 적립 가정
 
-    document.querySelector('.cart-summary-box p:nth-child(2) span').textContent = `₩${totalProductAmount.toLocaleString()}`;
-    document.querySelector('.cart-summary-box p:nth-child(3) span').textContent = `₩${shippingFee.toLocaleString()}`;
-    document.querySelector('.cart-summary-box p:nth-child(5) span').textContent = `₩${totalPaymentAmount.toLocaleString()}`;
-    document.querySelector('.cart-summary-box p:nth-child(6) span').textContent = `₩${totalPoints.toLocaleString()}`;
+    // 요약 박스 업데이트: [상품 금액], [배송비], [결제 예정 금액], [적립 예정 포인트]
+    document.querySelector('.cart-summary-box p:nth-child(2) span').textContent = `₩${totalProductAmount.toLocaleString()}`; // 상품 금액
+    document.querySelector('.cart-summary-box p:nth-child(3) span').textContent = `₩${shippingFee.toLocaleString()}`; // 배송비
+    document.querySelector('.cart-summary-box p:nth-child(5) span').textContent = `₩${totalPaymentAmount.toLocaleString()}`; // 결제 예정 금액
+    document.querySelector('.cart-summary-box p:nth-child(6) span').textContent = `${totalPoints.toLocaleString()}P`; // 적립 예정 포인트
 }
 
 // 5. 전체 선택 체크박스 상태 업데이트
@@ -133,9 +148,12 @@ function bindEvents() {
     document.querySelectorAll('.remove-btn').forEach(button => {
         button.onclick = (e) => {
             const id = parseInt(e.target.dataset.id);
-            const newCart = cartItems.filter(item => item.id !== id);
-            saveCartItems(newCart);
-            renderCart();
+            // 모달을 사용하여 사용자에게 삭제 여부를 확인
+            showCustomConfirm('해당 상품을 장바구니에서 삭제하시겠습니까?', function() {
+                 const newCart = cartItems.filter(item => item.id !== id);
+                saveCartItems(newCart);
+                renderCart();
+            });
         };
     });
 
@@ -177,14 +195,14 @@ function bindEvents() {
             renderCart();
         });
     };
-
+    
     // 3. 전체 삭제 버튼 이벤트
     document.getElementById('delete-all-btn').onclick = () => {
         if (cartItems.length === 0) {
-            showCustomAlert("장바구니가 이미 비어있습니다.");
+            showCustomAlert("장바구니에 삭제할 상품이 없습니다.");
             return;
         }
-
+        
         showCustomConfirm('장바구니의 모든 상품을 삭제하시겠습니까?', function() {
             saveCartItems([]);
             renderCart();
@@ -193,42 +211,98 @@ function bindEvents() {
 }
 
 
-// 페이지 로드 시 장바구니 렌더링 시작
-document.addEventListener('DOMContentLoaded', renderCart);
+// --- 모달 (Custom Alert/Confirm) 로직 ---
 
-// cart.js 파일 내 bindEvents() 함수 내부에 추가
+const modal = document.getElementById('custom-modal');
+const modalMessage = document.getElementById('modal-message');
+const modalOkBtn = document.getElementById('modal-ok-btn');
+const modalCancelBtn = document.getElementById('modal-cancel-btn');
 
-document.querySelectorAll('.book-card button').forEach(button => {
-    button.onclick = (e) => {
-        const card = e.target.closest('.book-card');
-        const itemName = card.querySelector('h3').textContent.trim();
-        // 실제 상품 ID, 가격, 이미지 경로는 서버/데이터 구조에 맞게 가져와야 합니다.
-        // 여기서는 임시 값과 상품 이름만 사용합니다.
-        
-        const cartItems = getCartItems();
+/**
+ * Custom Alert 모달 표시
+ * @param {string} message - 표시할 메시지
+ */
+function showCustomAlert(message) {
+    modalMessage.textContent = message;
+    modalCancelBtn.style.display = 'none'; // 취소 버튼 숨김
+    modal.classList.add('active');
 
-        // 1. 이미 장바구니에 있는지 확인
-        const existingItem = cartItems.find(item => item.name === itemName);
-
-        if (existingItem) {
-            // 2. 이미 있다면 수량만 증가
-            existingItem.quantity += 1;
-        } else {
-            // 3. 없다면 새 항목 추가
-            const newItem = {
-                // ID는 현재 장바구니의 최대 ID보다 1 크게 설정 (고유 ID 생성)
-                id: cartItems.length > 0 ? Math.max(...cartItems.map(i => i.id)) + 1 : 1,
-                name: itemName,
-                price: 18000, // 예시 가격 (실제 데이터에 따라 변경)
-                quantity: 1,
-                image: card.querySelector('img').getAttribute('src'),
-                selected: true
-            };
-            cartItems.push(newItem);
-        }
-
-        saveCartItems(cartItems);
-        renderCart();
-        showCustomAlert(`${itemName}이 장바구니에 추가되었습니다.`);
+    // 확인 버튼 클릭 시 모달 닫기
+    modalOkBtn.onclick = () => {
+        modal.classList.remove('active');
     };
+}
+
+/**
+ * Custom Confirm 모달 표시
+ * @param {string} message - 표시할 메시지
+ * @param {function} onConfirm - '확인' 클릭 시 실행할 콜백 함수
+ */
+function showCustomConfirm(message, onConfirm) {
+    modalMessage.textContent = message;
+    modalCancelBtn.style.display = 'inline-block'; // 취소 버튼 표시
+    modal.classList.add('active');
+
+    // '확인' 버튼 클릭 시
+    modalOkBtn.onclick = () => {
+        modal.classList.remove('active');
+        if (onConfirm) onConfirm();
+    };
+
+    // '취소' 버튼 클릭 시
+    modalCancelBtn.onclick = () => {
+        modal.classList.remove('active');
+    };
+}
+
+// 추천 도서 장바구니 담기 기능
+function addRecommendedBookToCart() {
+    // 모든 추천 도서의 "장바구니 담기" 버튼에 이벤트 추가
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.onclick = (e) => {
+            const id = parseInt(e.target.dataset.id);
+            const title = e.target.dataset.title;
+            const price = parseInt(e.target.dataset.price);
+            const image = e.target.dataset.image;
+
+            // 현재 장바구니 데이터 가져오기
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // 이미 장바구니에 있는 상품인지 확인
+            const existingIndex = cart.findIndex(item => item.id === id);
+            
+            if (existingIndex !== -1) {
+                // 이미 있으면 수량 증가
+                cart[existingIndex].quantity += 1;
+                showCustomAlert('장바구니에 상품 수량이 추가되었습니다.');
+            } else {
+                // 없으면 새로 추가
+                const newItem = {
+                    id: id,
+                    title: title,
+                    author: '',
+                    cover: image,
+                    price: price,
+                    quantity: 1,
+                    selected: true
+                };
+                cart.push(newItem);
+                showCustomAlert('장바구니에 상품이 추가되었습니다.');
+            }
+
+            // localStorage에 저장
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // 장바구니 목록 다시 렌더링
+            renderCart();
+        };
+    });
+}
+
+// 초기 로딩 시 장바구니 목록 렌더링 시작
+document.addEventListener('DOMContentLoaded', () => {
+    // 렌더링 전에 초기 로컬 스토리지를 확인하여 데이터가 없으면 '장바구니에 상품이 없습니다' 상태가 되도록 합니다.
+    renderCart();
+    // 추천 도서 장바구니 담기 버튼 이벤트 바인딩
+    addRecommendedBookToCart();
 });

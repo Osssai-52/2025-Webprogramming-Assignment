@@ -120,4 +120,57 @@ fetch("js/1_북마크_detail.json")
         bottomPriceElement.textContent = (book.sale_price * quantity).toLocaleString() + "원";
     }
 
+    // 장바구니 버튼 클릭 이벤트
+    const cartButton = document.getElementById("cart-button");
+    const cartModal = document.getElementById("cart-modal");
+    const modalCancel = document.getElementById("modal-cancel");
+    const modalConfirm = document.getElementById("modal-confirm");
+
+    cartButton.addEventListener("click", () => {
+        // 장바구니에 상품 추가 (localStorage 사용)
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+        const cartItem = {
+            id: book.id,
+            title: book.title,
+            author: book.author,
+            cover: book.cover,
+            price: book.sale_price,
+            quantity: quantity,
+            selected: true  // 새로 추가되는 상품은 기본적으로 선택됨
+        };
+
+        // 이미 장바구니에 있는 상품인지 확인
+        const existingIndex = cart.findIndex(item => item.id === book.id);
+        if (existingIndex !== -1) {
+            // 이미 있으면 수량 증가
+            cart[existingIndex].quantity += quantity;
+        } else {
+            // 없으면 새로 추가
+            cart.push(cartItem);
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        
+        // 모달 표시
+        cartModal.classList.add("show");
+    });
+
+    // 취소 버튼 클릭
+    modalCancel.addEventListener("click", () => {
+        cartModal.classList.remove("show");
+    });
+
+    // 장바구니 보기 버튼 클릭
+    modalConfirm.addEventListener("click", () => {
+        window.location.href = "1_북마크_cart.html";
+    });
+
+    // 모달 배경 클릭 시 닫기
+    cartModal.addEventListener("click", (e) => {
+        if (e.target === cartModal) {
+            cartModal.classList.remove("show");
+        }
+    });
+
   });
