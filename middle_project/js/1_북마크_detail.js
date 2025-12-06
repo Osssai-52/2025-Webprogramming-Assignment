@@ -23,9 +23,20 @@ fetch("js/1_북마크_detail.json")
       book.original_price.toLocaleString() + "원";
     document.getElementById("discount-rate").textContent = book.discount_rate;
 
-    // 포인트, 배송
+    // 포인트
     document.getElementById("point").textContent = book.point + "P";
-    document.getElementById("arrival-date").textContent = book.arrival_date;
+    
+    // 배송
+    const arrivalDateElement = document.getElementById("arrival-date");
+    const today = new Date();
+    const targetDate = new Date(today);
+    targetDate.setDate(today.getDate() + 2);
+    const month = targetDate.getMonth() + 1;
+    const day = targetDate.getDate();
+    const daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
+    const dayOfWeek = daysOfWeek[targetDate.getDay()];
+    const newArrivalDate = `내일(${month}/${day}, ${dayOfWeek} 오전 7시 전) 도착`;
+    arrivalDateElement.textContent = newArrivalDate;
 
     // 책 소개 요약
     if (book.summary) {
