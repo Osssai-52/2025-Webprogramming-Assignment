@@ -5,7 +5,16 @@ fetch("js/1_북마크_detail.json")
   .then(res => res.json())
   .then(data => {
     const book = data.find(item => item.id == bookId);
-    if (!book) return alert("책 정보를 찾을 수 없습니다.");
+    if (!book) {showCustomAlert("책 정보를 찾을 수 없습니다.");
+        const okBtn = document.getElementById('modal-ok-btn');
+        const modal = document.getElementById('custom-modal');
+        if (okBtn) {okBtn.onclick = function() {
+                if (modal) modal.classList.remove('show');
+                window.history.back(); 
+              };
+        }
+        return;
+    }
 
     // 기본 정보
     document.getElementById("book-title").textContent = book.title;
