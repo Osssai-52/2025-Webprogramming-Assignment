@@ -137,7 +137,7 @@ fetch("js/1_북마크_detail.json")
             cover: book.cover,
             price: book.sale_price,
             quantity: quantity,
-            selected: true  // 새로 추가되는 상품은 기본적으로 선택됨
+            selected: true  
         };
 
         // 이미 장바구니에 있는 상품인지 확인
