@@ -35,7 +35,7 @@ fetch("js/1_북마크_detail.json")
     const day = targetDate.getDate();
     const daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
     const dayOfWeek = daysOfWeek[targetDate.getDay()];
-    const newArrivalDate = `내일(${month}/${day}, ${dayOfWeek} 오전 7시 전) 도착`;
+    const newArrivalDate = `모레(${month}/${day}, ${dayOfWeek} 오전 7시 전) 도착`;
     arrivalDateElement.textContent = newArrivalDate;
 
     // 책 소개 요약
